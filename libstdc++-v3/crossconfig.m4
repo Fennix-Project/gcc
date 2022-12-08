@@ -135,6 +135,12 @@ case "${host}" in
     AC_CHECK_FUNCS(sockatmark)
     AC_CHECK_FUNCS(uselocale)
     ;;
+  *-fennix*)
+    GLIBCXX_CHECK_COMPILER_FEATURES
+    GLIBCXX_CHECK_LINKER_FEATURES
+    GLIBCXX_CHECK_MATH_SUPPORT
+    GLIBCXX_CHECK_STDLIB_SUPPORT
+    ;;
 
   *-fuchsia*)
     SECTION_FLAGS='-ffunction-sections -fdata-sections'
