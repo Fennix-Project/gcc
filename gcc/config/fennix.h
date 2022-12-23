@@ -21,7 +21,7 @@
  %{!shared:                            \
    %{!static:                          \
      %{rdynamic:-export-dynamic}       \
-     -dynamic-linker /system/bin/ld.so \
+     -dynamic-linker /system/ld.so     \
     }                                  \
   } -z max-page-size=4096"
 
