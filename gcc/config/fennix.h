@@ -15,7 +15,15 @@
 #define STANDARD_STARTFILE_PREFIX "/system/lib/"
 
 #undef LINK_SPEC
-#define LINK_SPEC "%{shared:-shared} %{static:-static} %{!shared: %{!static: %{rdynamic:-export-dynamic}}} -z max-page-size=4096"
+#define LINK_SPEC                      \
+"%{shared:-shared}                     \
+ %{static:-static}                     \
+ %{!shared:                            \
+   %{!static:                          \
+     %{rdynamic:-export-dynamic}       \
+     -dynamic-linker /system/bin/ld.so \
+    }                                  \
+  } -z max-page-size=4096"
 
 #undef TARGET_OS_CPP_BUILTINS
 #define TARGET_OS_CPP_BUILTINS()         \
